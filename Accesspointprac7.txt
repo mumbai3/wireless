@@ -1,0 +1,38 @@
+practical 7: Configuring basic AP setting
+
+take two accesspoint-pt
+
+click ap0(cs)-> config->port1 ssid:cs
+			      wpa2-psk pass phrase:ciscopacket1	
+click ap1(IT)-> config->port1 ssid:IT
+			      wpa2-psk pass phrase:ciscopacket2
+
+take ap0 for 2 pcs
+take ap1 for 2 pcs
+
+pc0(cs-1)-Ip:192.168.1.2 and default gateway:192.168.1.1
+pc1(cs-2)-Ip:192.168.1.3 and default gateway:192.168.1.1
+
+pc2(IT-1)-Ip:171.16.10.2 and default gateway:171.16.10.1
+pc3(IT-2)-Ip:171.16.10.3 and default gateway:171.16.10.1
+
+go all pcs and change physical replace
+
+go to pc0(cs-1)->config->wireless0->ssid:cs->wpa2-psk:ciscopacket1
+go to pc1(cs-2)->config->wireless0->ssid:cs->wpa2-psk:ciscopacket1
+
+go to pc2(IT-1)->config->wireless0->ssid:IT->wpa2-psk:ciscopacket2
+go to pc3(IT-1)->config->wireless0->ssid:IT->wpa2-psk:ciscopacket2
+
+Now take two routers-1841
+connect R0 to Ap0(cs) and R1 to Ap1(IT) using copper cross cable
+
+go to router0-fe0/0:192.168.1.1
+	       s0/0/0: 20.0.0.1
+Go to Rip and cli type version 2 and add 192.168.1.0  20.0.0.0
+
+go to router1-fe0/0:171.16.10.0
+	       s0/0/0: 20.0.0.2
+Go to Rip and cli type version 2 and add 171.16.10.0  20.0.0.0	
+
+connect r0 to r1 using serial dte cable

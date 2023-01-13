@@ -1,0 +1,28 @@
+Practical 1: Configure WEP on Wireless Router
+
+Take two routers-1841
+Take two switches-2960-24TT
+Take 2 pcs 
+ 
+connect all pc to switch and switch to router using copper straight cable
+and connect both router in serial cable dce 000 to 000
+
+In pc0-ip:192.168.1.2   and default:192.168.1.1
+In pc1-ip:192.168.2.2   and default:192.168.1.1
+
+In router0-fe 0/0:192.168.1.1
+	   fe 0/1:20.0.0.1
+	   serial0/0/0:10.0.0.1 clock rate 6400 and on
+	   go to rip then cli type version 2 and in rip add 10.0.0.0 and 192.168.1.0
+
+In router1-fe 0/0:192.168.2.1
+	   serial0/0/0:10.0.0.2 clock rate 6400 and on
+	   go to rip then cli type version 2 and in rip add 10.0.0.0 and 192.168.2.0
+
+then take wireless router(wrt300N) and connect with switch0 to wireless and router0 to wireless
+then go to wireless router and go to gui and go to setup and change ip address 1.1 and save
+go in wireless and select wireless security in wep and key1 2a2a2a2a2a and save	   
+
+then take pc2 and go to pc2 and switch off the machine and replace and save then go to config ->wireless0->select wep and type key 2a2a2a2a2a
+
+now go to router0 and in rip add 20.0.0.0

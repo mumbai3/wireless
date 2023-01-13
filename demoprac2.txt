@@ -1,0 +1,40 @@
+Practical 2: demonstrating Distribution layer function
+
+take 4 routers-1841
+take 2 switches-2960-24tt
+take 2 pcs
+
+then connect pc0 to switch0 and switch0 to router0
+then connect pc0 to switch0 and switch0 to router0
+both connection using copper straight
+
+connect router0 to router1
+connect router2 to router3
+both connection using copper cross cable
+
+connect r0 to r2
+connect r1 to r3
+using serial dce cable
+
+In pc0-IP:172.16.1.2 and default gateway:172.16.1.1
+In pc1-IP:192.168.1.2 and default gateway:192.168.1.1
+
+Go to R0(DS_1)-fe0/0:172.16.1.1
+		fe0/1:10.0.0.1
+		so/o/o:30.0.0.1 clock 6400 and on
+		go to rip then cli type version 2 and add rip 172.16.1.0  10.0.0.0  30.0.0.0
+
+Go to R2(DS_2)-fe0/0:192.168.1.1
+		fe0/1:20.0.0.1
+		so/o/o:30.0.0.2 clock 6400 and on
+		go to rip then cli type version 2 and add rip 192.168.1.0  20.0.0.0  30.0.0.0
+
+Go to R1(Core_1)-fe0/0:10.0.0.2
+		so/o/o:40.0.0.1 clock 6400 and on
+		go to rip then cli type version 2 and add rip  10.0.0.0  40.0.0.0
+
+Go to R1(Core_1)-fe0/0:20.0.0.2
+		so/o/o:40.0.0.2 clock 6400 and on
+		go to rip then cli type version 2 and add rip  20.0.0.0  40.0.0.0
+
+Now enter in simulation mode reset simulation and click on edit filters and in ipv4 select RIP and all deselect the run simulation

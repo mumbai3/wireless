@@ -1,0 +1,21 @@
+practical 6: creating an adhoc network
+
+take 2 wireless router(wrt300n)
+connect both using (copper cross cable)
+
+go wireless router0 and in wireless give 
+			network name ssid:cs
+			security:wpa2 personal
+			name passsphrase:ciscorouter0 and save
+			go to administration and enable remote management
+
+go wireless router1 and in wireless give 
+			network name ssid:IT
+			security:wpa2 personal
+			name passsphrase:ciscorouter1 and save
+			go to administration and enable remote management
+
+Now take 5 pcs and go to all pcs and switch off and replace
+
+now go to pc0 and in desktop->pc wireless->connect->refresh->click cs and give password:ciscorouter0 and connect
+same for all pcs

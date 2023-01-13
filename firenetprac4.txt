@@ -1,0 +1,31 @@
+Practical 4: Planning Network based firewalls
+
+take 1 server server-pt
+take 1 wireless router(wrt300n)
+take 3 pcs
+
+In wireless router go to gui and save
+
+connect server to wireless router (using copper cable) and wait till to green
+
+select server go to desktop click on IP configuration and click DHCP
+
+go pc0->phyisical switchoff and replace then on same for pc1 and pc2
+
+go to pc1 in command ping 192.168.0.100
+proper connection between server and machine
+
+go to pc1 webbrowser 192.168.0.100
+In this case icmp and ip prtocols on
+
+Now we try to block icmp
+
+go to server and go to ipv4 firewall->service on
+remote ip:0.0.0.0  wildcards: 255.255.255.255
+action deny select icmp
+
+remote ip:0.0.0.0  wildcards: 255.255.255.255
+action allow select ip
+
+now go to pc1 terinal ping 192.168.0.100 and in web browser
+same for pc0 and pc1

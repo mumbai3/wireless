@@ -1,0 +1,27 @@
+Practical 8: configure fast ethernet on router using packet tracer
+
+take 1 router(router-pt)
+take 1 switch(switch-pt)
+take 3 pcs
+
+connect pc0 pc1 pc2 to switch 0 using copper straight
+switch0 to router0
+
+go to router0 in cli type
+enable 
+configure t
+hostname R0
+enable password cisco
+interface fa0/0
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit 
+exit
+
+go to pc0-ip:192.168.2.2   192.168.2.1
+go to pc1-ip:192.168.2.3   192.168.2.1
+go to pc2-ip:192.168.2.4   192.168.2.1
+
+go to pc0 and command ping 192.168.2.1
+
+r0# running-config
